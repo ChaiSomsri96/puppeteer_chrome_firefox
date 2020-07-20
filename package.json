@@ -1,0 +1,81 @@
+{
+  "name": "puppeteer",
+  "version": "3.1.9",
+  "description": "Teach puppeteer new tricks through plugins.",
+  "repository": "berstend/puppeteer-extra",
+  "author": "berstend",
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "build": "yarpm run clean && tsc --module commonjs && rollup -c rollup.config.ts",
+    "docs": "documentation readme --quiet --shallow --github --markdown-theme transitivebs --readme-file readme.md --section API ./src/index.ts && npx prettier --write readme.md",
+    "test-ts": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ava -v test/**.ts",
+    "test-js": "ava -v --serial --concurrency 1 --fail-fast test/**.js",
+    "test": "yarpm run test-js && yarpm run test-ts",
+    "test-ci": "yarpm run test"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "keywords": [
+    "puppeteer",
+    "puppeteer-extra",
+    "flash",
+    "stealth",
+    "prefs",
+    "user-preferences",
+    "chrome",
+    "headless",
+    "pupeteer"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "^2.0.0",
+    "ava": "^2.4.0",
+    "documentation-markdown-themes": "^12.1.5",
+    "puppeteer": "^2.0.0",
+    "puppeteer-extra-plugin": "^3.1.4",
+    "puppeteer-extra-plugin-anonymize-ua": "^2.2.8",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.27.5",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.25.2",
+    "ts-node": "^8.5.4",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^9.0.0",
+    "typescript": "^3.7.4",
+    "yarpm": "^0.2.1"
+  },
+  "peerDependencies": {
+    "puppeteer": "*"
+  },
+  "dependencies": {
+    "@types/debug": "^4.1.0",
+    "@types/puppeteer": "*",
+    "debug": "^4.1.1",
+    "deepmerge": "^4.2.2",
+    "is-running": "^2.1.0",
+    "puppeteer-extra": "^3.1.9",
+    "puppeteer-extra-plugin-adblocker": "^2.11.3",
+    "puppeteer-extra-plugin-stealth": "^2.4.9",
+    "puppeteer-firefox-dl": "^0.5.0"
+  },
+  "gitHead": "babb041828cab50c525e0b9aab02d58f73416ef3"
+}
