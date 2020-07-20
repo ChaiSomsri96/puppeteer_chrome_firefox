@@ -6,7 +6,7 @@ const pluginStealth = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(pluginStealth());
 
 var domain = [
-"idiva.com"
+"domain.com"
 ];
 
 var uas = [
